@@ -1,17 +1,89 @@
-let num = 266219;
-let counter = num.toString();
-let multiply = 1;
-for (let i = 0; i < counter.length; i++) {
-  multiply *= counter[i];
+"use strict";
+
+let lang = "ru";
+
+if (lang == "ru") {
+  console.log(
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье"
+  );
+} else if (lang == "en") {
+  console.log(
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  );
+} else {
+  console.log("Другое значение");
 }
 
-console.log(multiply); // перемножение цифр данного числа
+lang = "en";
 
-let pow = 3;
-multiply **= pow;
+switch (lang) {
+  case "en":
+    console.log(
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    );
+    break;
+  case "ru":
+    console.log(
+      "Понедельник",
+      "Вторник",
+      "Среда",
+      "Четверг",
+      "Пятница",
+      "Суббота",
+      "Воскресенье"
+    );
+    break;
+  default:
+    console.log("Другое значение");
+}
 
-console.log(multiply); // возведение в степень
+lang = "ru";
 
-let twoNum = Number(multiply.toString().slice(0, 2)); // вывод первых двух чисел в консоль
+week = {
+  ru: [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ],
+  en: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ],
+};
 
-console.log(twoNum);
+console.log(week[lang]);
+
+let namePerson = "Александр";
+
+namePerson == "Артем"
+  ? console.log("директор")
+  : namePerson == "Александр"
+  ? console.log("преподаватель")
+  : console.log("студент");
