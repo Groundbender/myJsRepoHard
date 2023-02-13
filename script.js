@@ -1,36 +1,33 @@
-"use strict";
+let output = document.querySelector(".output");
+let week = [
+  "Понедельник",
+  "Вторник",
+  "Среда",
+  "Четверг",
+  "Пятница",
+  "Суббота",
+  "Воскресенье",
+];
+let date = new Date();
+let today = date.getDay();
 
-let arr = ["12345", "54321", "67891", "92392", "2435435", "4671203", "41756"];
+today === 0 ? (today = 6) : today--;
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i].startsWith("2") || arr[i].startsWith("4")) {
-    console.log(arr[i]);
+console.log(today);
+
+week.forEach(function (day, index) {
+  console.log(index + ": " + day);
+  if (index === today) {
+    output.insertAdjacentHTML(
+      "beforebegin",
+      "<div>" + "<b>" + day + "</b>" + "</div>"
+    );
+  } else if (index === 5 || index === 6) {
+    output.insertAdjacentHTML(
+      "beforebegin",
+      "<div>" + "<i>" + day + "</i>" + "</div>"
+    );
+  } else {
+    output.insertAdjacentHTML("beforebegin", "<div>" + day + "</div>");
   }
-}
-
-const dividers = function (num) {
-  let arr = [];
-  if (num !== 1) {
-    arr.push(1);
-    for (let i = 2; i * i <= num; i++) {
-      if (num % i === 0) {
-        arr.push(i);
-      }
-    }
-  }
-  arr.push(num);
-  return arr;
-};
-
-for (let i = 1; i <= 100; i++) {
-  const n = dividers(i);
-  if (n.length <= 2) {
-    console.log(i + ": Простое число. Делители  числа: " + n.join(", "));
-  }
-}
-
-for (let i = 1; i <= 100; i++) {
-  console.log(i + ": Делители  числа: " + dividers(i).join(", "));
-}
-
-dividers();
+});
